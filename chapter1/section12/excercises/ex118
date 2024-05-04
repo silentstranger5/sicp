@@ -1,0 +1,10 @@
+#lang scheme
+(provide *)
+(define (double x) (+ x x))
+(define (halve x) (/ x 2))
+(define (* a b)
+  (fast-mul a b 0))
+(define (fast-mul a b p)
+  (cond ((= b 1) (+ a p))
+        ((even? b) (fast-mul (double a) (halve b) p))
+        (else (fast-mul a (- b 1) (+ p a)))))

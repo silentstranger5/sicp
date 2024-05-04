@@ -1,0 +1,10 @@
+#lang scheme
+(provide f)
+(define (square x) (* x x))
+(define (sum-of-squares a b c)
+  (+ (square a) (square b) (square c)))
+(define (f a b c)
+  (- (sum-of-squares a b c)
+     (cond ((and (< a b) (< a c)) a)
+           ((and (< b a) (< b c)) b)
+           ((and (< c a) (< c b)) c))))
